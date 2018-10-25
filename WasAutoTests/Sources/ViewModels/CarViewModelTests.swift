@@ -14,7 +14,8 @@ class CarViewModelTests: BaseTest {
 	func testLoadCars() {
 
 		let expectation = self.expectation(description: #function)
-		var listViewModel: ListViewModelProtocol = CarViewModel(withId: "130")
+		let model = Manufacturer(id: "130", name: "BMW")
+		var listViewModel: ListViewModelProtocol = CarViewModel(withModel: model)
 
 		listViewModel.dataSourceDidLoad = { success in
 			expectation.fulfill()
@@ -33,11 +34,11 @@ class CarViewModelTests: BaseTest {
 	func testLoadCarsInvalidId() {
 
 		let expectation = self.expectation(description: #function)
-		var listViewModel: ListViewModelProtocol = CarViewModel(withId: "invalid")
+		var listViewModel: ListViewModelProtocol = CarViewModel()
 
 		listViewModel.dataSourceDidLoad = { success in
 			expectation.fulfill()
-			XCTAssert(success, "success should be true")
+			XCTAssertFalse(success, "success should be false")
 			XCTAssertEqual(listViewModel.numberOfCells, 0, "The numberOfCells should be equal to 0")
 			XCTAssertFalse(listViewModel.hasNextPage, "hasNextPage should be false")
 		}
