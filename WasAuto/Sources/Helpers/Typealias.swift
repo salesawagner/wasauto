@@ -9,6 +9,6 @@
 import UIKit
 
 typealias CompletionSuccess = (_ success: Bool) -> Void
-typealias ModelListHandler = (_ page: Int, _ totalPages: Int, _ models: [ModelProtocol], _ success: Bool) -> Void
+typealias APIResponseHandler = (_ response: APIResponse) -> Void
 typealias PushWithModel = (_ viewModel: ListViewModelProtocol) -> Void
 typealias AlertWithMessage = (_ Message: String) -> Void

@@ -16,14 +16,20 @@ class CarViewModel: ListViewModel, ListViewModelProtocol {
 			return
 		}
 
-		APIManager.carList(
-		withManufacturerId: model.id,
-		page: self.nextPage) { (currentPage, totalPages, dataSource, success) in
-			self.currentPage = currentPage
-			self.totalPages = totalPages
-			self.setDataSource(loadType: loadType, dataSource: dataSource)
+		APIManager.carList(withManufacturerId: model.id, page: self.nextPage) { response in
+			var success: Bool = false
+			switch response {
+			case .Success(let currentPage, let totalPages, let dataSource):
+				self.currentPage = currentPage
+				self.totalPages = totalPages
+				self.setDataSource(loadType: loadType, dataSource: dataSource)
+				success = true
+			default: break
+			}
+
 			self.dataSourceDidLoad?(success)
 		}
+
 	}
 
 	func cellAccessoryType() -> UITableViewCell.AccessoryType {

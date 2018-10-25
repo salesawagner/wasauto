@@ -9,6 +9,11 @@
 import Alamofire
 import SwiftyJSON
 
+enum APIResponse {
+	case Success(_ page: Int, _ totalPages: Int, _ models: [ModelProtocol])
+	case Error(error: String)
+}
+
 class APIManager {
 
 	private class func page(value: Any) -> (Int, Int)? {
@@ -35,7 +40,7 @@ class APIManager {
 		return Alamofire.request(url, method: method, parameters: parameters, encoding: encoding, headers: headers)
 	}
 
-	class func manufacturerList(page: Int, completion: @escaping ModelListHandler) {
+	class func manufacturerList(page: Int, completion: @escaping APIResponseHandler) {
 
 		let url = API.manufacturer()
 		let parameters = API.createParameters(page: page)
@@ -45,19 +50,21 @@ class APIManager {
 				let value = response.result.value,
 				let (currentPage, totalPages) = self.page(value: value),
 				let response = self.response(value: value) else {
-					completion(0, 0, [], false)
+					let error = APIResponse.Error(error: "Parsing error")
+					completion(error)
 					return
 			}
 
 			let results = Manufacturer.arrayFromJson(response)
-			completion(currentPage, totalPages, results, true)
+			let success = APIResponse.Success(currentPage, totalPages, results)
+			completion(success)
 		}
 	}
 
 	class func carList(
 		withManufacturerId manufacturerId: String,
 		page: Int,
-		completion: @escaping ModelListHandler) {
+		completion: @escaping APIResponseHandler) {
 
 		let url = API.car(withManufacturerId: manufacturerId)
 		var parameters = API.createParameters(page: page)
@@ -68,12 +75,14 @@ class APIManager {
 				let value = response.result.value,
 				let (currentPage, totalPages) = self.page(value: value),
 				let response = self.response(value: value) else {
-					completion(0, 0, [], false)
+					let error = APIResponse.Error(error: "Parsing error")
+					completion(error)
 					return
 			}
 
 			let results = Car.arrayFromJson(response)
-			completion(currentPage, totalPages, results, true)
+			let success = APIResponse.Success(currentPage, totalPages, results)
+			completion(success)
 		}
 	}
 }
