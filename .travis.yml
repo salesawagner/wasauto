@@ -17,4 +17,4 @@ script:
 - xcodebuild -workspace WasAuto.xcworkspace -scheme WasAuto -destination "platform=iOS Simulator,name=iPhone X,OS=12.0" clean test | xcpretty
 
 after_success:
-  - bash <(curl -s https://codecov.io/bash) -t ccaac61c-1ef8-4f55-808c-671c14ba2e52
+  - bash <(curl -s https://codecov.io/bash) -t ba248341-692c-471a-ad57-ef800fd89334
