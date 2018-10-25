@@ -12,10 +12,22 @@ Requirements
 |:--------------------:|:---------------------------:|:----------------------------:|
 | 4.2 | iOS 12.0 | Xcode 10 |
 
+Language support
+=====================
+- Brazilian Portuguese
+- English
+- German
+
 CI
 =====================
 - **<a href="http://travis-ci.org"> Travis </a>**
 - **<a href="https://codecov.io"> Codecov </a>**
+
+Pods
+=====================
+- **<a href="https://github.com/vikmeup/SCLAlertView-Swift"> SCLAlertView </a>**
+- **<a href="https://github.com/Alamofire/Alamofire"> Alamofire </a>**
+- **<a href="https://github.com/SwiftyJSON/SwiftyJSON"> SwiftyJSON </a>**
 
 Installing
 =====================

@@ -11,8 +11,6 @@ branches:
 before_install:
   - rm -rf /Users/travis/Library/Developer/Xcode/DerivedData/WasAuto-*/
   - rvm use $RVM_RUBY_VERSION
-  - brew update
-  - brew upgrade swiftlint
   - pod repo update
 
 script:
