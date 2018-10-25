@@ -1,0 +1,22 @@
+language: swift
+osx_image: xcode10
+xcode_project: WasAuto.xcodeproj
+xcode_scheme: WasAuto
+xcode_sdk: iphonesimulator12.0
+
+branches:
+  only:
+  - master
+
+before_install:
+  - rm -rf /Users/travis/Library/Developer/Xcode/DerivedData/WasAuto-*/
+  - rvm use $RVM_RUBY_VERSION
+  - brew update
+  - brew upgrade swiftlint
+  - pod repo update
+
+script:
+- xcodebuild -workspace WasAuto.xcworkspace -scheme WasAuto -destination "platform=iOS Simulator,name=iPhone X,OS=12.0" clean test | xcpretty
+
+after_success:
+  - bash <(curl -s https://codecov.io/bash) -t ccaac61c-1ef8-4f55-808c-671c14ba2e52

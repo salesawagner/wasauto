@@ -1,0 +1,17 @@
+{
+  "page" : 0,
+  "pageSize" : 10,
+  "totalPageCount" : 4,
+  "wkda" : {
+    "B-Max" : "B-Max",
+    "C-Max" : "C-Max",
+    "Capri" : "Capri",
+    "Cougar" : "Cougar",
+    "EcoSport" : "EcoSport",
+    "Econovan" : "Econovan",
+    "Edge" : "Edge",
+    "Escort" : "Escort",
+    "Explorer" : "Explorer",
+    "Fiesta" : "Fiesta"
+  }
+}

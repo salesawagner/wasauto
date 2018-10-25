@@ -1,0 +1,16 @@
+/* 
+  Localizable.strings
+  WasAuto
+
+  Created by Wagner Sales on 25/10/18.
+  Copyright © 2018 Wagner Sales. All rights reserved.
+*/
+
+"LIST" = "Lista";
+"MANUFACTURERS" = "Fabricantes";
+"WAIT" = "Aguarde";
+"LOADING" = "Carregando";
+"ATTENTION" = "Atenção";
+"SORRY" = "Desculpa";
+"SOMETHING_WRONG" = "Aconteceu algo errado.";
+"EMPTY_MESSAGE" = "Não consegui encontrar nada.";

@@ -1,0 +1,17 @@
+{
+  "page" : 0,
+  "pageSize" : 2147483647,
+  "totalPageCount" : 1,
+  "wkda" : {
+    "020" : "Abarth",
+    "040" : "Alfa Romeo",
+    "042" : "Alpina",
+    "043" : "Alpine",
+    "057" : "Aston Martin",
+    "060" : "Audi",
+    "130" : "BMW",
+    "095" : "Barkas",
+    "107" : "Bentley",
+    "145" : "Brilliance"
+  }
+}
