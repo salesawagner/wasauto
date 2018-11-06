@@ -16,7 +16,7 @@ class API {
 
 	static private let version: String = "v1/"
 	static private let types: String = "car-types/"
-	#error("!!! ATENTION !!! Set the base URL")
+	#warning("!!! ATENTION !!! Set the base URL")
 	static private let baseURL: String = ""
 
 	// MARK: - Internal Methods
