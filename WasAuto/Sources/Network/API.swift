@@ -16,7 +16,8 @@ class API {
 
 	static private let version: String = "v1/"
 	static private let types: String = "car-types/"
-	static private let baseURL: String = "http://api-aws-eu-qa-1.auto1-test.com/"
+	#error("!!! ATENTION !!! Set the base URL")
+	static private let baseURL: String = ""
 
 	// MARK: - Internal Methods
 
